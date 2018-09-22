@@ -44,7 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         final Intent i = new Intent(getApplicationContext(),MapsActivity.class);
         final SharedPreferences pref = getSharedPreferences("mypref",MODE_PRIVATE);
         final SharedPreferences.Editor edit=pref.edit();
-        //final EditText uname = (EditText) findViewById(R.id.et);
         final SharedPreferences mypref = getSharedPreferences("unames", MODE_PRIVATE);
         alistener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -59,7 +58,6 @@ public class LoginActivity extends AppCompatActivity {
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //final String username = uname.getEditableText().toString();
                     AlertDialog.Builder builder=new AlertDialog.Builder(LoginActivity.this,R.style.Theme_AppCompat_DayNight_Dialog_Alert);
                     builder.setCancelable(true);
                     builder.setTitle("CONFIRM LOGIN").setMessage("Do You Want To Login?").setPositiveButton("yes", new DialogInterface.OnClickListener() {
@@ -74,7 +72,6 @@ public class LoginActivity extends AppCompatActivity {
                             .setNegativeButton("NO", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    //Toast.makeText(LoginActivity.this, "Cancelled", Toast.LENGTH_SHORT).show();
                                     dialogInterface.cancel();
 
                                 }
@@ -112,8 +109,6 @@ public class LoginActivity extends AppCompatActivity {
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
                 Toast.makeText(this, "Sign-in Failed", Toast.LENGTH_SHORT).show();
-                //Log.w("TAG", "Google sign in failed", e);
-                // ...
             }
         }
     }
@@ -128,15 +123,13 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "signInWithCredential:failure", task.getException());
                             Toast.makeText(getApplicationContext(), "Authentication Failed.", Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
                         }
 
-                        // ...
+
                     }
                 });
     }

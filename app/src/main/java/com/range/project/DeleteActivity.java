@@ -40,14 +40,12 @@ public class DeleteActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 share s1=dataSnapshot.getValue(share.class);
-                //if (s1.getUsername().equals(FirebaseAuth.getInstance().getCurrentUser().getDisplayName())){
                     String addy=s1.getUsername()+" : "+s1.getMessage();
                     data.add(addy);
                     myadapter.notifyDataSetChanged();
                     editor.putString(addy,s1.getPid());
                     editor.apply();
 
-                //}
             }
 
             @Override
